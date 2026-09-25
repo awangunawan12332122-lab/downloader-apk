@@ -113,18 +113,20 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  // PERBAIKAN DI SINI: Menggunakan .name bukan .label
   String _qualityLabel(VideoQuality q) {
-    final h = q.label.toLowerCase();
+    final h = q.name.toLowerCase();
     if (h.contains('2160') || h.contains('4k')) return '4K';
     if (h.contains('1440')) return '1440p';
     if (h.contains('1080')) return 'FHD';
     if (h.contains('720')) return 'HD';
     if (h.contains('480')) return '480p';
-    return q.label;
+    return q.name.toUpperCase();
   }
 
+  // PERBAIKAN DI SINI: Menggunakan .name bukan .label
   Color _qualityColor(VideoQuality q) {
-    final h = q.label.toLowerCase();
+    final h = q.name.toLowerCase();
     if (h.contains('2160') || h.contains('4k')) return Colors.amber;
     if (h.contains('1440') || h.contains('1080')) return Colors.green;
     if (h.contains('720')) return Colors.blue;
